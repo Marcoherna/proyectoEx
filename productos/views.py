@@ -2,6 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def producto (request):
+def productos (request):
     context={}
-    return render (request, "producto/producto.html", context)
+    return render (request, "productos/producto.html", context)
