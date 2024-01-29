@@ -42,13 +42,23 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Conectarse
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
-              <li><a class="dropdown-item" href="#">Registrarse</a></li>
-              
-            </ul>
+              {% if user.is_authenticated %}
+                   {{user.username}}
+                   </a>
+                   <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                    <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                    </ul>
+                {% else %}
+                Conectarse
+                   </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                  <li><a class="dropdown-item" href="{% url 'registrarUsuario' %}">Registrarse</a></li>
+                  </ul>
+                   
+                {% endif %}
+            
 
                
               </li>
