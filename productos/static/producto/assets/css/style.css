@@ -7,3 +7,19 @@ body {background-color: rgb(105, 187, 169);}
     width: 100%;
     text-align: right;
 }
+.logo-img {
+    width: 20%; 
+    max-width: 170px;
+    height: auto;
+    position: absolute;
+    top: 0%;
+    left: 40%;
+}
+
+#product-cards{
+    padding: 10% 20%;
+  }
+
+  #shopping-cart{
+    padding: 5% 1%;
+  }  
