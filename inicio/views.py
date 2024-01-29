@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 def inicio (request):
     context={}
-    return render (request, "inicio/inicio.html", context)
+    return render (request, "inicio/index.html", context)
