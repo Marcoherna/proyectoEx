@@ -46,14 +46,14 @@
                    {{user.username}}
                    </a>
                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
-                    <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                    
                     </ul>
                 {% else %}
                 Conectarse
                    </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
                   <li><a class="dropdown-item" href="{% url 'registrarUsuario' %}">Registrarse</a></li>
                   </ul>
                    
