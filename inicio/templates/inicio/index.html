@@ -16,7 +16,10 @@
   <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Farmacia Ahorrito</a>
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'inicio/assets/img/logo farmacia ahorrito.png' %}" class="d-block w-40" alt="logo" width="40%" height="40%">
+
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,16 +32,6 @@
                   Productos
                 </a>
                 
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Conectarse
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
-                  <li><a class="dropdown-item" href="#">Registrarse</a></li>
-                  
-                </ul>
 
                 <li class="nav-item">
                   <a class="nav-link" href="quienesSomos.html" role="button" >
@@ -46,6 +39,16 @@
                   </a>
                   
             </li>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Conectarse
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+              <li><a class="dropdown-item" href="#">Registrarse</a></li>
+              
+            </ul>
 
                
               </li>
