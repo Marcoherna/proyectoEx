@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h2>Formulario actualizar datos</h2>
+        <form action="{% url trabajadoresUpdate %}" method="POST">
+               {% csrf_token %}
+   
+               <pre>Rut:              <input type="text" name="rut" value="{{trabajador.rut}}"></pre>
+               <pre>Nombre:           <input type="text" name="nombre" value="{{trabajador.nombre}}"></pre>
+               <pre>Apellido P.:      <input type="text" name="paterno" value="{{trabajador.apellido_paterno}}"></pre>
+               <pre>Apellido M.:      <input type="text" name="materno" value="{{trabajador.apellido_materno}}"></pre>
+               <pre>Fecha Nac.:       <input type="date" name="fechaNac" value="{{trabajador.fecha_nacimiento}}"></pre>
+               <pre>Celular:          <input type="text" name="telefono" value="{{trabajador.telefono}}"></pre>
+               <pre>Email:            <input type="mail" name="email" value="{{trabajador.email}}"></pre>
+               <pre>Dirección:        <input type="text" name="direccion" value="trabajador.direccion"></pre>
+   
+               <input type="submit" name="opcion" value="Actualizar">
+           </form><br/><br/>
+   
+           <a href="{% url 'crud' %}">Volver</a>
+           <br/>
+           <div id="idMensajes">
+               {% if mensaje %}
+                   {{mensaje}}
+               {% endif %}
+           </div>
+       </div>
+   
+</body>
+</html>

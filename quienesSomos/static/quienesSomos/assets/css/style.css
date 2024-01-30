@@ -1,0 +1,18 @@
+.pesado {font-weight: bolder;
+text-align:left;}
+
+body {background-color: rgb(105, 187, 169);}
+
+.div-navegacion {
+    width: 100%;
+    text-align: right;
+}
+
+.logo-img {
+    width: 30%; 
+    max-width: 150px;
+    height: auto;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
