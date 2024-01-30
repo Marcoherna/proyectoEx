@@ -72,7 +72,7 @@ def trabajadoresFindEdit(request, pk):
     context = {'trabajador': trabajador}
 
     if trabajador:
-        return render(request, 'trabajadores/trabajadoresEdit.html', context)
+        return render(request, 'trabajadores/trabajadoresFindEdit.html', context)
     else:
         context = {'mensaje': "Error, rut no existe..."}
         return render(request, 'trabajadores/trabajadoresList.html', context)
@@ -104,7 +104,7 @@ def trabajadoresUpdate(request):
         trabajador.save()
 
         context = {'trabajador': trabajador}
-        return render(request, 'trabajadores/trabajadoresEdit.html', context)
+        return render(request, 'trabajadores/trabajadoresFindEdit.html', context)
 
     else:
         trabajadores = Trabajador.objects.all()
