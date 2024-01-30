@@ -9,8 +9,8 @@ def crud(request):
     context = {'trabajadores':trabajadores}
     return render(request, 'trabajadores/trabajadoresList.html', context)
 
-def trabajadoresAddAdd(request):
-    print(request.method)
+def trabajadoresAdd(request):
+    
     rut=request.POST["rut"]
     nombre=request.POST["nombre"]
     aPaterno=request.POST["paterno"]
@@ -33,38 +33,65 @@ def trabajadoresAddAdd(request):
     return render(request, 'trabajadores/trabajadoresAdd.html', context)
 
 
-def trabajadores_del(request, pk):
+def trabajadoresDel(request, pk):
     context={}
     try:
-        trabajador = Trabajador.objects.get(rut=pk)
-        trabajador .delete()
+        trabajadores = Trabajador.objects.get(rut=pk)
+
+        trabajadores.delete()
         mensaje = "Bien, datos eliminados..."
         trabajadores  = Trabajador.objects.all()
         context = {'trabajadores': trabajadores, 'mensaje':mensaje}
-        return render(request, 'trabajadores/trabajadoresAdd.html', context)
+        return render(request, 'trabajadores/trabajadoresList.html', context)
     except:
         mensaje = "Error, rut no existe..."
         trabajadores  = Trabajador.objects.all()
         context={'trabajadores': trabajadores, 'mensaje':mensaje}
-        return render(request, 'trabajadores/trabajadoresAdd.html', context)
+        return render(request, 'trabajadores/trabajadoresList.html', context)
 
 
 def indice(request):
     trabajadores= Trabajador.objects.all()
     form = TrabajadorForm()
-
    
-    
-    if request.method == 'POST':
-        request.session["email"]="example@example.cl"
-        print("por el post")
-    else: 
-        request.session["email"]="No autenticado"
-        print("por el get")
-    
-    email = request.session["email"]
-
-    context={"trabajadores": trabajadores, 'form': form, 'email':email}
+    context={"trabajadores": trabajadores, 'form': form}
 
 
     return render(request, 'trabajadores/indice.html', context)
+
+def trabajadoresFindEdit(request, pk):
+    trabajador = Trabajador.objects.get(rut=pk)
+
+    context= {'trabajador': trabajador}
+
+    if trabajador:
+        return render(request, 'trabajadores/trabajadoresEdit.html', context)
+    else:
+        context = {'mensaje': "Error, rut no existe..."}
+        return render(request, 'trabajadores/trabajadoresList.html', context)
+    
+def trabajadoresUpdate(request):
+    rut=request.POST["rut"]
+    nombre=request.POST["nombre"]
+    aPaterno=request.POST["paterno"]
+    aMaterno=request.POST["materno"]
+    fechaNac=request.POST["fechaNac"] 
+    telefono=request.POST["telefono"]
+    email=request.POST["email"]
+    direccion=request.POST["direccion"]
+
+    trabajador = Trabajador()
+
+    trabajador.rut              = rut
+    trabajador.nombre           = nombre
+    trabajador.apellido_paterno = aPaterno
+    trabajador.apellido_materno = aMaterno
+    trabajador.fecha_nacimiento = fechaNac
+    trabajador.telefono         = telefono
+    trabajador.email            = email
+    trabajador.direccion        = direccion
+
+    trabajador.save()
+
+    context = {'trabajador': trabajador}
+    return render(request, 'tranajadores/trabajadoresEdit.html', context)

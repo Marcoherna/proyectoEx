@@ -11,12 +11,12 @@ def registrar(request):
 
     if request.method == "POST":
         usuario=request.POST["usuario"]
-        contrasena=request.POST["contrasena"]
+        password=request.POST["password"]
         email=request.POST["email"]
         nombre=request.POST["nombre"]
         apellido=request.POST["apellido"] 
 
-        user = User.objects.create_user(usuario, email, contrasena)
+        user = User.objects.create_user(usuario, email, password)
         user.first_name = nombre
         user.last_name = apellido
         user.save()
