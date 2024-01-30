@@ -24,7 +24,7 @@
 
     <div style="text-align: center;">
      <h2>Formulario CRUD para Trabajadores</h2>
-     <form action="{% url trabajadoresAdd %}" method="POST">
+     <form action="{% url 'trabajadoresAdd' %}" method="POST">
             {% csrf_token %}
 
             <pre>Rut:              <input type="text" name="rut"></pre>
